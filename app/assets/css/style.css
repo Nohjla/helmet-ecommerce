@@ -1,0 +1,19 @@
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+#regcontainer{
+	margin-top: 50px !important;
+	color: red;
+}
+
+#langind-page{
+	height: 50vh;
+	background: gray;
+	margin-top: 20px;
+}
+
+#cmt{
+	margin-top: 50px;
+}
