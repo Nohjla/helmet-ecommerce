@@ -48,7 +48,7 @@ foreach($_SESSION['cart'] as $id=> $quantity) {
 
 $data .="</tbody></table>
              <hr>
-             <h3 align='right'>Total: &#x20B1; <span id='grandTotal'>$grand_total </span><br><button class='btn btn-success'>Check Out</button></h3>
+             <h3 align='right'>Total: &#x20B1; <span id='grandTotal'>$grand_total </span><br><a href='../controllers/checkout.php'><button class='btn btn-success'>Check Out</button></a></h3>
              <hr>";
 }
 else
