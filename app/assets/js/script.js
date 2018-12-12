@@ -241,3 +241,19 @@ function showCategories(categoryID){
 		});
 }
 
+function findCategories(fcategoryID){
+
+	console.log(fcategoryID);
+	$.ajax({
+			url:"../controllers/find_items.php",
+			method:"POST",
+			data:{
+				fcategoryID:fcategoryID
+			},
+			dataType:"text",
+			success: function(data){
+				$("#products").html(data)
+			}
+		});
+}
+

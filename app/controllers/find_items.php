@@ -3,10 +3,10 @@
 	
 	include 'connection.php';
 
-	$categoryID = $_POST['categoryID'];
+	$categoryID = $_POST['fcategoryID'];
 	$data = "";
 
-	$sql = "SELECT * FROM tbl_product where id = '$categoryID'";
+	$sql = "SELECT * FROM tbl_product where name LIKE '%".$categoryID."%'";
 	$result = mysqli_query($con, $sql);
 
 	if (mysqli_num_rows($result)>0) {
@@ -27,6 +27,9 @@
 			                </div>
 			            </div>";
 		}
+	}
+	else{
+		$data = "no results found";
 	}
 	echo $data;
 ?>

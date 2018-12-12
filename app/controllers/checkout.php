@@ -3,9 +3,10 @@
 ?>
 <?php
   if(!isset($_SESSION['email'])){
-    header("Location: ../views/index.php");
+    header("Location: ../views/register.php");
   }
 ?>
+<div class="container">
 <h1>Checkout Page</h1>
 <hr>
 <h3>Order Summary: P 8,000</h3>
@@ -50,7 +51,7 @@
 </h3>
 <hr>
 <button>Place Order Now</button>
-
+</div>
 <?php
 	require_once "../partials/footer.php";
 ?>

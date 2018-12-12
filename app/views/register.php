@@ -2,7 +2,7 @@
 ?>
 
 <div class="container" style="margin-top: 50px;">
-<p class="text-danger"><em>Please fill up all required(*) information</em></p>
+<p class="text-danger"><em>If you don't have account please fill up all required(*) information in this form to register.</em></p>
 
 	<form action="" method="POST">
 	  <div class="form-group">
