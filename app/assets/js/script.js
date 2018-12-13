@@ -223,7 +223,6 @@ function changeNoItems(id){
 			})	
  		}
  }
-
 function showCategories(categoryID){
 	// alert(categoryID);
 	// document.getElementById('nowCategories').innerHTML = "Category" + " " + categoryID;

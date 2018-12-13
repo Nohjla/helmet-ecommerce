@@ -21,7 +21,7 @@ if(isset($_SESSION['cart']))
 {
 
 foreach($_SESSION['cart'] as $id=> $quantity) {
-   $sql = "SELECT * FROM tbl_product where id = '$id' ";
+   $sql = "SELECT * FROM tbl_products where id = '$id' ";
              $result = mysqli_query($con, $sql);
 
                if(mysqli_num_rows($result) > 0){

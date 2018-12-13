@@ -16,7 +16,7 @@
 			// echo $row['lname'];
 			// echo "<br>";
 			// echo $row['fname'];
-
+			$_SESSION['userid'] = $row['id'];
 			$_SESSION['email'] = $row['username'];
 			$_SESSION['lastname'] = $row['lname'];
 			$_SESSION['firstname'] = $row['fname'];

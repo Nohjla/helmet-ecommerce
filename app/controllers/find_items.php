@@ -6,9 +6,8 @@
 	$categoryID = $_POST['fcategoryID'];
 	$data = "";
 
-	$sql = "SELECT * FROM tbl_product where name LIKE '%".$categoryID."%'";
+	$sql = "SELECT * FROM tbl_products where name LIKE '%".$categoryID."%'";
 	$result = mysqli_query($con, $sql);
-
 	if (mysqli_num_rows($result)>0) {
 		while ($row = mysqli_fetch_assoc($result)) {
 			$data.="<div class='col-md-4 mb-2 mt-2'>
