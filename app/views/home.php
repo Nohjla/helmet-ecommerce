@@ -37,10 +37,10 @@
 			     </div>
 		</div>
 
-		<div class="col-md-10" id="products">
+		<div class="col-md-10">
 			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-12">
+				<div class="row" id="products">
+					<!-- <div class="col-md-12" > -->
 					<?php
 						require_once '../controllers/connection.php';
 
@@ -68,7 +68,7 @@
 						echo '</div>';
 
 					?>
-					</div>
+<!-- 					</div> -->
 				</div>
 			</div>
 		</div>

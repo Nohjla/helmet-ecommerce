@@ -32,7 +32,6 @@ $(document).ready(()=>{
 		let bday = $("#bday").val();
 		let contact = $("#contact").val();
 		let address = $("#address").val();
-		let d_address = $("#delivery_address").val();
 		let username = $("#username").val();
 		let password = $("#password").val();
 		let cpassword = $("#cpassword").val();
@@ -75,11 +74,6 @@ $(document).ready(()=>{
 			error_log = 1;
 		}
 
-		if(d_address == ""){
-			$("#delivery_address").prev().css("color","#dc3545");
-			$("#delivery_address").prev().html("required(*)");
-			error_log = 1;
-		}
 
 		if(username == ""){
 			$("#username").prev().css("color","#dc3545");
@@ -112,7 +106,7 @@ $(document).ready(()=>{
 			$.ajax({
 				url:"../controllers/add-register.php",
 				method:"POST",
-				data:{lname:lname,mname:mname,fname:fname,gender:gender,bday:bday,contact:contact,address:address,d_address:d_address,username:username,password:password},
+				data:{lname:lname,mname:mname,fname:fname,gender:gender,bday:bday,contact:contact,address:address,username:username,password:password},
 				dataType:"text",
 				success:function(data)
 				{

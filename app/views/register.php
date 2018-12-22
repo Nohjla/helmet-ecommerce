@@ -87,15 +87,6 @@
 
 	  <div class="form-group">
 	  	<div class="container">
-		    <label for="delivery_address">* Delivery Address</label>
-		    <span></span>
-		    <textarea class="form-control" id="delivery_address"></textarea>
-		    <span></span>
-	    </div>
-	  </div>
-
-	  <div class="form-group">
-	  	<div class="container">
 		    <label for="username">* Username</label>
 		    <span></span>
 		    <input type="email" class="form-control" id="username" placeholder="example@gmail.com">

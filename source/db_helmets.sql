@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2018 at 07:02 PM
+-- Generation Time: Dec 22, 2018 at 07:51 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -47,7 +47,27 @@ CREATE TABLE `tbl_account` (
 --
 
 INSERT INTO `tbl_account` (`id`, `fname`, `mname`, `lname`, `gender`, `address`, `contact`, `date_created`, `bday`, `username`, `password`) VALUES
-(1, 'sample', 'sample', 'sample', 'male', 'makati city', 2147483647, '2018-12-05', '1991-06-05', 'sample2@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef');
+(1, 'sample', 'sample', 'sample', 'male', 'makati city', 2147483647, '2018-12-05', '1991-06-05', 'sample2@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef'),
+(2, 'sample3', 'sample3', 'sample3', 'male', 'awdawdawd', 65464060, '2018-12-20', '1996-02-06', 'sample3@gmail.com', '601f1889667efaebb33b8c12572835da3f027f78');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_admin`
+--
+
+CREATE TABLE `tbl_admin` (
+  `id` int(11) NOT NULL,
+  `admin_username` varchar(255) NOT NULL,
+  `admin_password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_admin`
+--
+
+INSERT INTO `tbl_admin` (`id`, `admin_username`, `admin_password`) VALUES
+(1, 'admin@gmail.com', 'efacc4001e857f7eba4ae781c2932dedf843865e');
 
 -- --------------------------------------------------------
 
@@ -123,7 +143,9 @@ INSERT INTO `tbl_orders` (`id`, `user_id`, `transaction_code`, `purchase_date`, 
 (116, 1, 'KDl41s03bHiRYkV5CN13122018', '13/12/2018', 1, 1, 'awdaw'),
 (117, 1, 'XI9SxU8uoV1R7CclnB13122018', '13/12/2018', 1, 1, 'awdaw'),
 (119, 1, 'E51fkHQ8OSUcWw6DNg13122018', '13/12/2018', 1, 1, 'awdaw'),
-(120, 1, 'GFNJOH1dMC05osmPaw13122018', '13/12/2018', 1, 1, 'awdaw');
+(120, 1, 'GFNJOH1dMC05osmPaw13122018', '13/12/2018', 1, 1, 'awdaw'),
+(122, 2, 'zFbWta9mX7koPKRdN020122018', '20/12/2018', 1, 1, 'makati city'),
+(123, 2, 'gnTIYDr9B7pzyoJfdx20122018', '20/12/2018', 1, 1, 'makati city');
 
 -- --------------------------------------------------------
 
@@ -171,7 +193,9 @@ INSERT INTO `tbl_order_items` (`id`, `orders_id`, `products_id`, `quantity`, `pr
 (27, 113, 2, 1, '3500'),
 (28, 115, 2, 1, '3500'),
 (29, 115, 3, 1, '3000'),
-(30, 119, 2, 1, '3500');
+(30, 119, 2, 1, '3500'),
+(31, 122, 2, 1, '3500'),
+(32, 122, 4, 3, '2600');
 
 -- --------------------------------------------------------
 
@@ -278,6 +302,12 @@ ALTER TABLE `tbl_account`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_admin`
+--
+ALTER TABLE `tbl_admin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
@@ -331,19 +361,25 @@ ALTER TABLE `tbl_types`
 -- AUTO_INCREMENT for table `tbl_account`
 --
 ALTER TABLE `tbl_account`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tbl_admin`
+--
+ALTER TABLE `tbl_admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_items`
 --
 ALTER TABLE `tbl_order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `tbl_payment_mode`

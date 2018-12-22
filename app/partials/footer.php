@@ -2,7 +2,7 @@
 	  <div class="container"> 
 	    <hr class="seprator-light-01">
 	    <div class="copyright-container">
-	    <p>2013 (C) Copyright Aljhon corp. | All Rights Reserved</p>
+	    <p>This website is just for completion of TUITT bootcamp. Aljhon Maligro(student)</p>
 	    </div>
 	  </div>
 	</div>

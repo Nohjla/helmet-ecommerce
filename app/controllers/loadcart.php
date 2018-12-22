@@ -1,24 +1,30 @@
 <?php
 require_once 'connection.php';
-$data ='
-         <table class="table table-hover">
-           <thead>
-             <tr>
-               <th scope="col">Product</th>
-               <th scope="col">Price</th>
-               <th scope="col">Quantity</th>
-               <th scope="col">Sub-total</th>
-             </tr>
-           </thead>
-           <tbody>
-  ';
+
 
 
 session_start();
 $grand_total = 0;
-
-if(isset($_SESSION['cart']))
+if(!isset($_SESSION["cart"])){
+  $count = 0;
+}
+else
 {
+  $count = count($_SESSION["cart"]);
+}
+
+if($count != 0)
+{
+$data ="<table class='table table-hover'>
+           <thead>
+             <tr>
+               <th scope'col'>Product</th>
+               <th scope='col'>Price</th>
+               <th scope='col'>Quantity</th>
+               <th scope='col'>Sub-total</th>
+             </tr>
+           </thead>
+           <tbody>";
 
 foreach($_SESSION['cart'] as $id=> $quantity) {
    $sql = "SELECT * FROM tbl_products where id = '$id' ";
@@ -53,7 +59,8 @@ $data .="</tbody></table>
 }
 else
 {
-  $data .="<h3 class='text-warning'>Cart is empty</h3>";
+  $data ="<h3 class='text-warning'>Cart is empty <i class='fas fa-cart-plus'></i></h3>
+          <img src='../assets/images/admin/tenor.gif'>";
 }
 echo $data;
 ?>

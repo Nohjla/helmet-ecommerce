@@ -9,11 +9,34 @@
 }
 
 #langind-page{
-	height: 50vh;
-	background: gray;
-	margin-top: 20px;
+	margin-top: 65px;
+	height: 750px;
+	background-image: url("../images/banner/Gladiator_1_Skull_Skin.jpg");
+	background-attachment: fixed;
+	/*background-position: center;*/
+	background-repeat: no-repeat;
 }
 
 #cmt{
-	margin-top: 50px;
+	margin-top: 80px;
+}
+.navbar-brand {
+	margin-left: 5rem;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.77);
+}
+
+.bg-light {
+    background-color: #2b323a!important;
+}
+.sample{
+	height: 300px;
+}
+.admin{
+	margin-top: 150px;
+}
+.parent-class{
+	position: relative!important;
 }

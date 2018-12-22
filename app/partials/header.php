@@ -9,45 +9,46 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-    <title>Capstone 2</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+
+
+    <title>Helms</title>
 </head>
 <body>
   <?php session_start(); error_reporting(0);?>
-  <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="index.php"><strong>Helms</strong></a>
+        <a class="navbar-brand" href="index.php"> <img src="../assets/images/logo/logo3.png" width="100" height="35" alt=""></a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item ">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-5">
+            <li class="nav-item pr-5">
               <a class="nav-link" href="../views/home.php"><i class="fab fa-product-hunt"></i> Products</a>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item pr-5">
               <a class="nav-link" href="../views/cart.php"><i class="fas fa-shopping-cart"></i><strong id="icart" class="badge badge-pill badge-secondary"><?php echo $_SESSION['item_count'];?></strong>Cart</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item pr-5">
               <a class="nav-link " href="#"><i class="fas fa-person-booth"></i> About us</a>
             </li>
              <?php 
 
               if (isset($_SESSION['email'])) {
-                echo "<li class='nav-item'>
+                echo "<li class='nav-item pr-5'>
               <a class='nav-link' href='../controllers/logout.php'><i class='fas fa-hiking'></i> Logout</a>
             </li>";
               }
               else
               {
-                echo "<li class='nav-item'>
+                echo "<li class='nav-item pr-5'>
               <a class='nav-link' href='#' data-toggle='modal' data-target='#exampleModalCenter'><i class='fas fa-user'></i> Sign In</a>
             </li>
-            <li class='nav-item'>
+            <li class='nav-item pr-5'>
               <a class='nav-link' href='register.php'><i class='fas fa-american-sign-language-interpreting'></i>  Register</a>
             </li>";
               }
@@ -57,7 +58,7 @@
           </ul>
         </div>
       </nav>
-  </div>
+
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

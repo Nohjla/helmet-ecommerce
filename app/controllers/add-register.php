@@ -8,7 +8,6 @@
 	$bday = $_POST['bday'];
 	$contact = $_POST['contact'];
 	$address = $_POST['address'];
-	$d_address = $_POST['d_address'];
 	$username = $_POST['username'];
 	$password = sha1($_POST['password']);
 	$date_c = date('Y-m-d');
@@ -22,7 +21,7 @@
 	}
 	else{
 
-	$sql = "INSERT tbl_account(fname,mname,lname,gender,address,delivery_address,contact,date_created,bday,username,password)VALUES('$fname','$mname','$lname','$gender','$address','$d_address','$contact','$date_c','$bday','$username','$password')";
+	$sql = "INSERT tbl_account(fname,mname,lname,gender,address,contact,date_created,bday,username,password)VALUES('$fname','$mname','$lname','$gender','$address','$contact','$date_c','$bday','$username','$password')";
 	$result = mysqli_query($con,$sql);
 
 	if(!$result){

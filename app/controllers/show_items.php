@@ -9,7 +9,7 @@
 	$result = mysqli_query($con, $sql);
 	if (mysqli_num_rows($result)>0) {
 		while ($row = mysqli_fetch_assoc($result)) {
-			$data="<div class='col-md-4 mb-2 mt-2'>
+			$data="<div class='col-md-4 mb-2'>
 			                	<div class='card h-100'>
 			                  <img src='$row[image_path]'>
 			                  <div class='card-body'>
