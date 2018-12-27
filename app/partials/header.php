@@ -27,28 +27,32 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-5">
-            <li class="nav-item pr-5">
+            <li class="nav-item pr-3">
               <a class="nav-link" href="../views/home.php"><i class="fab fa-product-hunt"></i> Products</a>
             </li>
-            <li class="nav-item pr-5">
-              <a class="nav-link" href="../views/cart.php"><i class="fas fa-shopping-cart"></i><strong id="icart" class="badge badge-pill badge-secondary"><?php echo $_SESSION['item_count'];?></strong>Cart</a>
+            <li class="nav-item pr-3">
+              <a class="nav-link" href="../views/cart.php"><i class="fas fa-shopping-cart"></i><strong id="icart" class="badge badge-pill badge-secondary"><?php echo array_sum($_SESSION['cart']);?></strong>Cart</a>
             </li>
-            <li class="nav-item pr-5">
+            <li class="nav-item pr-3">
               <a class="nav-link " href="#"><i class="fas fa-person-booth"></i> About us</a>
             </li>
              <?php 
 
               if (isset($_SESSION['email'])) {
-                echo "<li class='nav-item pr-5'>
-              <a class='nav-link' href='../controllers/logout.php'><i class='fas fa-hiking'></i> Logout</a>
+                echo "<li class='nav-item dropdown'>
+                      <a class='nav-link dropdown-toggle' href='#' id='navbarDropdownMenuLink' role='button' data-toggle='dropdown' aria-haspopup=''true' aria-expanded='false'>Account</a>
+              <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdownMenuLink'>
+              <a class='dropdown-item' href='#' data-toggle='modal' data-target='#exampleModalCenter1'><i class='fas fa-cog'></i> Change Password</a>
+              <a class='dropdown-item' href='../controllers/logout.php'><i class='fas fa-hiking'></i> Logout</a>
+              </div>
             </li>";
               }
               else
               {
-                echo "<li class='nav-item pr-5'>
+                echo "<li class='nav-item pr-3'>
               <a class='nav-link' href='#' data-toggle='modal' data-target='#exampleModalCenter'><i class='fas fa-user'></i> Sign In</a>
             </li>
-            <li class='nav-item pr-5'>
+            <li class='nav-item pr-3'>
               <a class='nav-link' href='register.php'><i class='fas fa-american-sign-language-interpreting'></i>  Register</a>
             </li>";
               }
@@ -59,6 +63,44 @@
         </div>
       </nav>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <form action="" method="POST">
+            <div class="container">
+              <label for="password">Change Password</label>
+              <span></span>
+              <input type="password" class="form-control" id="password" placeholder="Password">
+              <span></span>
+            </div>
+          </form>
+        </div>
+
+        <div class="form-group">
+          <div class="container">
+            <label for="cpassword">Confirm Change Password</label>
+            <span></span>
+            <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password" onchange="confirmPass()">
+            <span></span>
+          </div>
+        </div>
+        
+        <div class="container">
+          <button type="button" class="btn btn-warning" id="btn_changepass">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

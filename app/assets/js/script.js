@@ -22,7 +22,25 @@ function validate() {
 
 
 $("#username").keyup("click", validate);
+function confirmPass(){
+	let pass = $("#password").val();
+	let cpass = $("#cpassword").val();
+	if(pass == cpass){
+		console.log('Match');
+	}
+	else{
+		console.log('password did not match');
+	}
+}
 
+$(document).ready(()=>{
+	$("#btn_changepass").click(()=>{
+		let pass = $("#password").val();
+		let cpass = $("#cpassword").val();
+		console.log(pass);
+		console.log(cpass);
+	})
+});
 $(document).ready(()=>{
 	$("#btn_register").click(()=>{
 		let lname = $("#lname").val();
@@ -130,7 +148,7 @@ $(document).ready(()=>{
 // validation registration
 
 
-$("button#addToCart").on("click",function(){
+$('a[href="#"]').on("click",function(){
 	//get the product id
 	let productid = $(this).attr("data-id");
 	let quantity = $("#quantity"+productid).val();
@@ -250,3 +268,36 @@ function findCategories(fcategoryID){
 		});
 }
 
+function incrementValue(e) {
+  e.preventDefault();
+  var fieldName = $(e.target).data('field');
+  var parent = $(e.target).closest('div');
+  var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+  if (!isNaN(currentVal)) {
+    parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
+  } else {
+    parent.find('input[name=' + fieldName + ']').val(0);
+  }
+}
+
+function decrementValue(e) {
+  e.preventDefault();
+  var fieldName = $(e.target).data('field');
+  var parent = $(e.target).closest('div');
+  var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+  if (!isNaN(currentVal) && currentVal > 0) {
+    parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
+  } else {
+    parent.find('input[name=' + fieldName + ']').val(0);
+  }
+}
+
+$('.input-group').on('click', '.button-plus', function(e) {
+  incrementValue(e);
+});
+
+$('.input-group').on('click', '.button-minus', function(e) {
+  decrementValue(e);
+});

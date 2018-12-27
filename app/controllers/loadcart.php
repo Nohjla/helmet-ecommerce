@@ -10,7 +10,7 @@ if(!isset($_SESSION["cart"])){
 }
 else
 {
-  $count = count($_SESSION["cart"]);
+  $count = array_sum($_SESSION["cart"]);
 }
 
 if($count != 0)
@@ -44,7 +44,9 @@ foreach($_SESSION['cart'] as $id=> $quantity) {
                          "<tr>
                              <td><img src='$row[image_path]' width='25%' height='25%'></td>
                              <td id='price$id'> $price</td>
-                             <td><input type='number' onkeypress='return event.charCode >= 48 && event.charCode <= 57' class ='form-control' value = '$quantity' id='quantity$id'  min='1' size='5' onchange='changeNoItems($id)'></td>
+                             <td>
+                             <input type='number' onkeypress='return event.charCode >= 48 && event.charCode <= 57' class ='form-control' value = '$quantity' id='quantity$id'  min='1' size='5' onchange='changeNoItems($id)'>
+                             </td>
                              <td class='sub-total' id='subTotal$id'>$subTotal</td>
                              <td><button class='btn btn-danger' onclick='deleteItem($id)' >Remove</button></td>
                          </tr>";
@@ -53,9 +55,7 @@ foreach($_SESSION['cart'] as $id=> $quantity) {
 }
 
 $data .="</tbody></table>
-             <hr>
-             <h3 align='right'>Total: &#x20B1; <span id='grandTotal'>$grand_total </span><br><a href='../controllers/checkout.php'><button class='btn btn-success'>Check Out</button></a></h3>
-             <hr>";
+             <h3 align='right'>Total: &#x20B1; <span id='grandTotal'>$grand_total </span><br><a href='../controllers/checkout.php'><button class='btn btn-success'>Check Out</button></a></h3>";
 }
 else
 {
