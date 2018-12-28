@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2018 at 02:19 PM
+-- Generation Time: Dec 28, 2018 at 05:42 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -88,7 +88,7 @@ INSERT INTO `tbl_categories` (`id`, `name`) VALUES
 (1, 'AGV'),
 (2, 'HJC'),
 (3, 'KYT'),
-(5, 'Spyder');
+(5, 'SPYDER');
 
 -- --------------------------------------------------------
 
@@ -318,7 +318,7 @@ ALTER TABLE `tbl_categories`
 -- AUTO_INCREMENT for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_items`

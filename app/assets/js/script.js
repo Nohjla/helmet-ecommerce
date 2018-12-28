@@ -26,19 +26,32 @@ function confirmPass(){
 	let pass = $("#password").val();
 	let cpass = $("#cpassword").val();
 	if(pass == cpass){
-		console.log('Match');
+		$("#passconf").text("Password matched");
+		$("#passconf").css("color","green");
 	}
 	else{
-		console.log('password did not match');
+		$("#passconf").text("Password did not match");
+		$("#passconf").css("color","red");
 	}
 }
 
 $(document).ready(()=>{
 	$("#btn_changepass").click(()=>{
 		let pass = $("#password").val();
-		let cpass = $("#cpassword").val();
-		console.log(pass);
-		console.log(cpass);
+		$.ajax({
+			url:"../controllers/change_password.php",
+			method:"POST",
+			data:{npass:pass},
+			dataType:"text",
+			success:function(data)
+			{		
+				alert(data);
+				$("#password").val('');	
+				$("#cpassword").val('');	
+			}
+
+		});	
+
 	})
 });
 $(document).ready(()=>{
@@ -203,7 +216,6 @@ function changeNoItems(id){
 	let a =0;
 	$(".sub-total").each(function(id) {
 		a = a + parseFloat($(this).text());
-		console.log(a);
 	});
 	$("#grandTotal").text(a);
 
@@ -277,7 +289,7 @@ function incrementValue(e) {
   if (!isNaN(currentVal)) {
     parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
   } else {
-    parent.find('input[name=' + fieldName + ']').val(0);
+    parent.find('input[name=' + fieldName + ']').val(1);
   }
 }
 
@@ -287,10 +299,10 @@ function decrementValue(e) {
   var parent = $(e.target).closest('div');
   var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
 
-  if (!isNaN(currentVal) && currentVal > 0) {
+  if (!isNaN(currentVal) && currentVal > 1) {
     parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
   } else {
-    parent.find('input[name=' + fieldName + ']').val(0);
+    parent.find('input[name=' + fieldName + ']').val(1);
   }
 }
 
@@ -301,3 +313,4 @@ $('.input-group').on('click', '.button-plus', function(e) {
 $('.input-group').on('click', '.button-minus', function(e) {
   decrementValue(e);
 });
+

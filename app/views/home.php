@@ -6,7 +6,7 @@
 
 
 <section id="cmt">
-<div class="container">
+<div class="container border rounded border-secondary">
 	<div class="row mb-2">
 		<div class="col-md-8"></div>
 		<div class="col-md-4">
@@ -19,9 +19,9 @@
 		    </div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row ml-1 mr-1">
 		<div class="col-md-2 mb-2">
-			<h1 id ="nowCategories">Helmets</h1>
+			<h1 id ="nowCategories"><img src="../assets/images/logo/logo2.png" width="150" height="70" alt=""></h1>
 				<div class="row text">
 					<div class ='list-group w-100 text-center'>
 				      <?php require_once '../controllers/connection.php';
@@ -29,7 +29,7 @@
 				      	$result = mysqli_query($con, $sql);	
 				      	if(mysqli_num_rows($result)>0){
 				      		while ($row = mysqli_fetch_assoc($result)){
-				            echo "<a href='#nowCategories' class = 'list-group-item' onclick='showCategories($row[id])'>$row[name]</a>";			                   
+				            echo "<a href='#nowCategories' class = 'list-group-item bg-dark text-light' onclick='showCategories($row[id])'>$row[name]</a>";			                   
 				      		}
 				      	}
 				      ?>
@@ -58,7 +58,7 @@
 						                       		<img src='$row[image_path]' class='img-fluid'>
 						                          <div class='card-body'>
 						                          	<div class='row'>
-						                            <h6 class='card-title'><a href='product.php?id=$row[id]'>$row[name]</a></h6>
+						                            <h6 class='card-title'><a href='product.php?id=$row[id]' class='text-body'>$row[name]</a></h6>
 						                            </div>
 						                            <div class='row'>
 						                            <h5 class='price'>₱ $row[price]</h5>
@@ -66,7 +66,7 @@
 						                            <div class='row ml-1'>
 						                            <div class='input-group'>
 						                            <input type='button' value='-'' class='button-minus' data-field='quantity'>
-  													<input type='number' step='1' max='10' value='1' name='quantity' class='quantity-field' id='quantity$row[id]' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+  													<input type='number' step='1' min='1' max='10' value='1' name='quantity' class='quantity-field' id='quantity$row[id]' onkeypress='return event.charCode >= 48 && event.charCode <= 57' disabled>
   													<input type='button' value='+' class='button-plus' data-field='quantity'>
   													</div>
 						                            

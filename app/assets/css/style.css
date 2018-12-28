@@ -3,6 +3,7 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
 #regcontainer{
 	margin-top: 50px !important;
 	color: red;
@@ -41,7 +42,6 @@
 	position: relative!important;
 }
 .table-hover{
-	margin-top: 80px;
 }
 
 #addToCart{
@@ -108,4 +108,29 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
   -webkit-appearance: none;
+}
+
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#2b323a;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  	font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  	z-index:100;
+}
+
+.float:hover{
+	background-color:#FFF;
+	color:#2b323a;
+}
+
+.my-float{
+	margin-top:16px;
 }

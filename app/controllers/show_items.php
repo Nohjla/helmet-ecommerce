@@ -23,7 +23,7 @@
 						                            <div class='row ml-1'>
 						                            <div class='input-group'>
 						                            <input type='button' value='-'' class='button-minus' data-field='quantity'>
-  													<input type='number' step='1' max='10' value='1' name='quantity' class='quantity-field' id='quantity$row[id]' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+  													<input type='number' step='1' max='10' value='1' name='quantity' class='quantity-field' id='quantity$row[id]' onkeypress='return event.charCode >= 48 && event.charCode <= 57' disabled>
   													<input type='button' value='+' class='button-plus' data-field='quantity'>
   													</div>
 						                            

@@ -2,9 +2,10 @@
 	require_once "../partials/header.php";
 ?>
 <?php
+  
   require_once "connection.php";
   if(!isset($_SESSION['email'])){
-    header("Location: ../views/register.php");
+    echo "<script type='text/javascript'> document.location = '../views/register.php'; </script>";
   }
   $userid = $_SESSION['userid'];
   $date = date('j'."/".'m'."/".'o');
@@ -16,7 +17,7 @@
   // echo $transaction_code."<br>";
 ?>
 
-  <div class="container mt-5">
+  <div class="container admin">
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <div class="row mb-5">
           <div class="col-md-8">
@@ -80,7 +81,13 @@
                                             echo $row['name'];
                                             echo "</td>";
                                             echo "<td>";
-                                            echo $row['brandname'];
+                                            $sql2 = "SELECT * FROM tbl_categories where id = '$row[categories_id]' ";
+                                            $result2 = mysqli_query($con, $sql2);
+                                            if(mysqli_num_rows($result2) > 0){
+                                              while($row2 = mysqli_fetch_assoc($result2)){
+                                                echo $row2["name"];
+                                              }
+                                            }
                                             echo "</td>";
                                             echo "<td>";
                                             echo $quantity;

@@ -15,16 +15,8 @@ else
 
 if($count != 0)
 {
-$data ="<table class='table table-hover'>
-           <thead>
-             <tr>
-               <th scope'col'>Product</th>
-               <th scope='col'>Price</th>
-               <th scope='col'>Quantity</th>
-               <th scope='col'>Sub-total</th>
-             </tr>
-           </thead>
-           <tbody>";
+$data ="<div class='container'>
+        <h3>MY CART <i class='fas fa-shopping-cart'></i></h3>";
 
 foreach($_SESSION['cart'] as $id=> $quantity) {
    $sql = "SELECT * FROM tbl_products where id = '$id' ";
@@ -41,21 +33,47 @@ foreach($_SESSION['cart'] as $id=> $quantity) {
                        $grand_total += $subTotal;
 
                        $data .=
-                         "<tr>
-                             <td><img src='$row[image_path]' width='25%' height='25%'></td>
-                             <td id='price$id'> $price</td>
-                             <td>
-                             <input type='number' onkeypress='return event.charCode >= 48 && event.charCode <= 57' class ='form-control' value = '$quantity' id='quantity$id'  min='1' size='5' onchange='changeNoItems($id)'>
-                             </td>
-                             <td class='sub-total' id='subTotal$id'>$subTotal</td>
-                             <td><button class='btn btn-danger' onclick='deleteItem($id)' >Remove</button></td>
-                         </tr>";
+                         "<hr>
+                         <div class='row'>
+                            <div class='col-md-3'>
+                                <img src='$row[image_path]' class='img-fluid'>
+                               <div class='row mt-2 ml-2'>
+                                  <a href='#' class='ml-5 mr-2' onclick='deleteItem($id)' >Edit</a>
+                                  <a href='#' class='ml-3 mr-3' onclick='deleteItem($id)' >Remove</a>
+                               </div>
+                            </div>
+                            <div class='col-md-3 mt-3'>
+                                   <h5>$row[name]</h5>
+                                  <span>$row[produc_description]</span>
+                            </div>
+                            <div class='col-md-3 mt-3'>
+                              <div class='row'>
+                                <div class='col-md-6'>
+                                    <strong>
+                                   <span>&#8369</span>
+                                    <span id='price$id'> $price</span>
+                                    </strong>
+                                </div>
+                                <div class='col-md-6'>
+
+                                    <input type='number' onkeypress='return event.charCode >= 48 && event.charCode <= 57' class ='form-control' value = '$quantity' id='quantity$id'  min='1' size='5' onchange='changeNoItems($id)'>
+                                </div>
+                              </div>
+                            </div>
+
+                             <div class='col-md-3 mt-3'>
+                             <strong>
+                             <span>&#8369</span>
+                             <span class='sub-total' id='subTotal$id'>$subTotal</span>
+                             </strong>
+                             </div>
+                         </div>";
                    }
                }
 }
 
-$data .="</tbody></table>
-             <h3 align='right'>Total: &#x20B1; <span id='grandTotal'>$grand_total </span><br><a href='../controllers/checkout.php'><button class='btn btn-success'>Check Out</button></a></h3>";
+$data .="   <hr>
+             <h3 align='right'>Total: &#x20B1; <span id='grandTotal'>$grand_total </span><br><a href='../controllers/checkout.php'><button class='btn btn-success'>Check Out</button></a></h3></div>";
 }
 else
 {

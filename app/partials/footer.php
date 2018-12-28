@@ -1,8 +1,14 @@
+<a href="#" class="float">
+<i class="fas fa-angle-double-up my-float"></i>
+</a>
+
+
+
 	<div class="footer-container">
 	  <div class="container"> 
 	    <hr class="seprator-light-01">
 	    <div class="copyright-container">
-	    <p>This website is just for completion of TUITT bootcamp. Aljhon Maligro(student)</p>
+	    <p>This website is just for completion of my studies in TUITT bootcamp. Aljhon Maligro(student)</p>
 	    </div>
 	  </div>
 	</div>

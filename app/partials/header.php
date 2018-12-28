@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-
+    <link rel="icon" type="image/png/gif" href="../assets/images/logo/logo1.png">
 
     <title>Helms</title>
 </head>
@@ -23,7 +23,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="index.php"> <img src="../assets/images/logo/logo3.png" width="100" height="35" alt=""></a>
+        <a class="navbar-brand" href="index.php"><i class="fas fa-home" style="color:white;"></i></a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-5">
@@ -78,9 +78,7 @@
           <form action="" method="POST">
             <div class="container">
               <label for="password">Change Password</label>
-              <span></span>
               <input type="password" class="form-control" id="password" placeholder="Password">
-              <span></span>
             </div>
           </form>
         </div>
@@ -90,7 +88,7 @@
             <label for="cpassword">Confirm Change Password</label>
             <span></span>
             <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password" onchange="confirmPass()">
-            <span></span>
+            <em><span id="passconf"></span></em>
           </div>
         </div>
         
@@ -130,3 +128,5 @@
     </div>
   </div>
 </div>
+
+

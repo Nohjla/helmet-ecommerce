@@ -1,8 +1,8 @@
 <?php require_once '../partials/header.php';
 ?>
 
-<div class="container" style="margin-top: 50px;">
-<p class="text-danger"><em>If you don't have account please fill up all required(*) information in this form to register.</em></p>
+<div class="container admin">
+<p class="text-danger"><em>If you don't have account please fill up all required(*) information in this form to register or click sign-in.</em></p>
 
 	<form action="" method="POST">
 	  <div class="form-group">
