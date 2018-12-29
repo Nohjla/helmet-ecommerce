@@ -229,7 +229,19 @@ function changeNoItems(id){
 
 
  }
-
+function showProduct(productID){
+	console.log(productID);
+		$.ajax({
+			url:"../controllers/view-single-item.php",
+			method:"POST",
+			data:{id:productID},
+			dataType:"text",
+			success:function(data){
+				$("#products").html(data);
+			}
+		})
+	
+}
  function deleteItem(id){
 
  		let ans = confirm("are you sure");

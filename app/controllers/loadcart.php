@@ -55,7 +55,6 @@ foreach($_SESSION['cart'] as $id=> $quantity) {
                                     </strong>
                                 </div>
                                 <div class='col-md-6'>
-
                                     <input type='number' onkeypress='return event.charCode >= 48 && event.charCode <= 57' class ='form-control' value = '$quantity' id='quantity$id'  min='1' size='5' onchange='changeNoItems($id)'>
                                 </div>
                               </div>

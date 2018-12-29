@@ -15,7 +15,7 @@
 						                       		<img src='$row[image_path]' class='img-fluid'>
 						                          <div class='card-body'>
 						                          	<div class='row'>
-						                            <h6 class='card-title'><a href='product.php?id=$row[id]'>$row[name]</a></h6>
+						                            <h6 class='card-title'><a href='#' class='text-body' onclick='showProduct($row[id])'>$row[name]</a></h6>
 						                            </div>
 						                            <div class='row'>
 						                            <h5 class='price'>₱ $row[price]</h5>
