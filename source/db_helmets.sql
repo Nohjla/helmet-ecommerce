@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2019 at 08:47 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Generation Time: Jan 02, 2019 at 06:20 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -48,7 +48,8 @@ CREATE TABLE `tbl_account` (
 
 INSERT INTO `tbl_account` (`id`, `fname`, `mname`, `lname`, `gender`, `address`, `contact`, `date_created`, `bday`, `username`, `password`) VALUES
 (1, 'sample', 'sample', 'sample', 'male', 'makati city', 2147483647, '2018-12-05', '1991-06-05', 'sample2@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef'),
-(2, 'sample3', 'sample3', 'sample3', 'male', 'awdawdawd', 65464060, '2018-12-20', '1996-02-06', 'sample3@gmail.com', '601f1889667efaebb33b8c12572835da3f027f78');
+(2, 'sample3', 'sample3', 'sample3', 'male', 'awdawdawd', 65464060, '2018-12-20', '1996-02-06', 'sample3@gmail.com', '601f1889667efaebb33b8c12572835da3f027f78'),
+(3, 'Lloyd', 'As', 'Paraiso', 'male', 'Tanay, Rizal City', 12312, '2019-01-02', '2019-01-02', 'lloydparaiso2016@gmail.com', '011c945f30ce2cbafc452f39840f025693339c42');
 
 -- --------------------------------------------------------
 
@@ -106,6 +107,45 @@ CREATE TABLE `tbl_orders` (
   `shipping_address` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tbl_orders`
+--
+
+INSERT INTO `tbl_orders` (`id`, `user_id`, `transaction_code`, `purchase_date`, `status_id`, `payment_mode_id`, `shipping_address`) VALUES
+(2, 1, 'cDPv4kqnjSQr2pdRuZ2012019', '2/01/2019', 1, 2, 'Taguig City'),
+(5, 1, 'GVm3BRxonl8vqyj6TE2012019', '2/01/2019', 1, 1, 'Taguig City'),
+(9, 3, 'AmzVQpo8w76EdFujvh2012019', '2/01/2019', 1, 1, 'Tanay, Rizal City'),
+(11, 3, 'UOPAypvR2FghnbGQso2012019', '2/01/2019', 1, 1, 'Tanay lang'),
+(13, 3, 'CuWae0GMpLFbwkjg5h2012019', '2/01/2019', 1, 2, 'Taguig City'),
+(14, 3, 'PYUkrx9maqS3WzJiQx2012019', '2/01/2019', 1, 2, 'Taguig City'),
+(15, 3, 'sVnXOezAT4JISDm3Co2012019', '2/01/2019', 1, 1, 'Taguig City'),
+(16, 3, '8KGJ2NnEOq56oYxIcu2012019', '2/01/2019', 1, 2, 'Makati City'),
+(17, 3, 'gijueESdVNAaR3rqvb2012019', '2/01/2019', 1, 2, 'Makati City'),
+(18, 3, 'EUspd5RlNzHGjZbXqS2012019', '2/01/2019', 1, 2, 'Makati City'),
+(19, 3, 'P3CU7oqD6T2VKgvhNu2012019', '2/01/2019', 1, 2, 'Makati City'),
+(20, 3, 'Irv3AWYiToDp7xNMjq2012019', '2/01/2019', 1, 2, 'asdasdasdasd'),
+(21, 3, 'nR3szrVI8YM42ywPLl2012019', '2/01/2019', 1, 2, 'asdasdasdasd'),
+(22, 3, 'LKBSnukXzqVMyIR0lE2012019', '2/01/2019', 1, 1, 'awdawdwad'),
+(23, 3, 'buZIG7TxBu18Qq9w5R2012019', '2/01/2019', 1, 2, 'awdawd'),
+(24, 3, '58SHoJc1xhVBlpRDKN2012019', '2/01/2019', 1, 1, 'awdawd'),
+(25, 3, '1GLi2fgDWI0xwejA762012019', '2/01/2019', 1, 2, 'awdawdaw'),
+(26, 3, 'hj4QIL5NGKrmVyiXOu2012019', '2/01/2019', 1, 1, 'awdawd'),
+(27, 3, 'IdRT4NjauVWcZDyvh82012019', '2/01/2019', 1, 2, 'Taguig'),
+(28, 3, 'fEKwGXnOHpVJbaFqBx2012019', '2/01/2019', 1, 2, 'awdawd'),
+(29, 3, 'YL5FUW4yVw0ADtq7fc2012019', '2/01/2019', 1, 2, 'awdawdawdaw'),
+(30, 3, 'JTaEvOH4qMAzejiCXZ2012019', '2/01/2019', 1, 2, 'awdawd'),
+(31, 3, 'tnRGwSy8cXmxqMbds92012019', '2/01/2019', 1, 2, 'awdawda'),
+(32, 3, 'Sp1jRublk9Q5UN4zCO2012019', '2/01/2019', 1, 2, 'awdawda'),
+(33, 3, 'Vl4NhWnXsmpxc2PuLG2012019', '2/01/2019', 1, 2, 'awdawd'),
+(34, 3, 'hVa4Q1b8x6UgICAy3s2012019', '2/01/2019', 1, 2, 'awdawd'),
+(35, 3, '1WCDi9fnwVK0eRxdFo2012019', '2/01/2019', 1, 2, 'awdawdawd'),
+(36, 3, 'xfHZ9PWY1DNlXQA0qy2012019', '2/01/2019', 1, 1, 'awdawd'),
+(37, 3, '6R2CdMg7YSLsEZwclm2012019', '2/01/2019', 1, 1, 'awdawd'),
+(38, 3, 'Wek6bd2xgJ7P9SCfy32012019', '2/01/2019', 1, 1, 'awdawd'),
+(39, 3, 'M9WYJof8evmyzVsGXn2012019', '2/01/2019', 1, 1, 'awdawd'),
+(40, 3, 'z59rbcAGENQelhVkU12012019', '2/01/2019', 1, 2, 'awdawd'),
+(41, 3, 'E4qp5VxsyMN1GRWcmD2012019', '2/01/2019', 1, 2, 'awdawd');
+
 -- --------------------------------------------------------
 
 --
@@ -119,6 +159,44 @@ CREATE TABLE `tbl_order_items` (
   `quantity` int(11) NOT NULL,
   `price` decimal(18,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_order_items`
+--
+
+INSERT INTO `tbl_order_items` (`id`, `orders_id`, `products_id`, `quantity`, `price`) VALUES
+(1, 2, 6, 1, '32000'),
+(2, 5, 7, 2, '32000'),
+(3, 5, 8, 2, '32000'),
+(4, 9, 7, 1, '32000'),
+(5, 11, 7, 1, '32000'),
+(6, 11, 8, 1, '32000'),
+(7, 13, 6, 1, '32000'),
+(8, 13, 7, 1, '32000'),
+(9, 15, 7, 1, '32000'),
+(10, 16, 7, 1, '32000'),
+(11, 20, 7, 1, '32000'),
+(12, 22, 8, 1, '32000'),
+(13, 23, 8, 1, '32000'),
+(14, 24, 8, 1, '32000'),
+(15, 25, 8, 1, '32000'),
+(16, 26, 8, 1, '32000'),
+(17, 27, 8, 2, '32000'),
+(18, 28, 8, 2, '32000'),
+(19, 29, 8, 2, '32000'),
+(20, 30, 8, 2, '32000'),
+(21, 31, 8, 1, '32000'),
+(22, 32, 9, 1, '32000'),
+(23, 33, 9, 1, '32000'),
+(24, 34, 9, 1, '32000'),
+(25, 35, 8, 1, '32000'),
+(26, 36, 8, 1, '32000'),
+(27, 37, 8, 1, '32000'),
+(28, 38, 8, 1, '32000'),
+(29, 39, 9, 1, '32000'),
+(30, 40, 8, 1, '32000'),
+(31, 41, 8, 1, '32000'),
+(32, 41, 9, 1, '32000');
 
 -- --------------------------------------------------------
 
@@ -300,7 +378,7 @@ ALTER TABLE `tbl_types`
 -- AUTO_INCREMENT for table `tbl_account`
 --
 ALTER TABLE `tbl_account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_admin`
@@ -318,13 +396,13 @@ ALTER TABLE `tbl_categories`
 -- AUTO_INCREMENT for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_items`
 --
 ALTER TABLE `tbl_order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `tbl_payment_mode`

@@ -104,7 +104,7 @@
           <form action="" method="POST">
             <div class="container">
               <label for="password">Change Password</label>
-              <input type="password" class="form-control" id="password" placeholder="Password">
+              <input type="password" class="form-control" id="hpassword" placeholder="Password">
             </div>
           </form>
         </div>
@@ -113,7 +113,7 @@
           <div class="container">
             <label for="cpassword">Confirm Change Password</label>
             <span></span>
-            <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password" onchange="confirmPass()">
+            <input type="password" class="form-control" id="chpassword" placeholder="Confirm Password" onchange="confirmPass()">
             <em><span id="passconf"></span></em>
           </div>
         </div>

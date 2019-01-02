@@ -7,33 +7,17 @@
     Add New Brand
 
   </a>
-  <a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1">
-    Add New Brand
-  </a>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
-    <form >
-    	<div class="form-group">
-		  <div class="container">
-		    <label for="contact">* Contact</label>
-		    <span></span>
-		    <input type="text" class="form-control" id="contact">
-		    </input>
-		    <span></span>
-		  </div>
-	  	</div>
+  	<form action="" method="POST">
+  		<input type="text" class="form-control" id="brand" placeholder="Brand">
+  		<span id="suc"></span>
+  		<button type="button" class="btn btn-success" id="btn_addBrand">Register</button>
+  	</form>
 
-    	<button type="button" class="btn btn-success" id="btn_addItem">Register</button>
-    </form>
   </div>
 </div>
-<div class="collapse" id="collapseExample1">
-  <div class="card card-body">
-    <form >
-    	b
-    </form>
-  </div>
-</div>
+
 
 
 <form action="validate-add_item.php" method="POST" enctype="multipart/form-data">

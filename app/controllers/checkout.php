@@ -2,28 +2,22 @@
 	require_once "../partials/header.php";
 ?>
 <?php
-  
+
   require_once "connection.php";
   if(!isset($_SESSION['email'])){
     echo "<script type='text/javascript'> document.location = '../views/register.php'; </script>";
   }
-  $userid = $_SESSION['userid'];
-  $date = date('j'."/".'m'."/".'o');
-  $dateshuffle = date('j'.'m'.'o');
-  $transaction_code = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuuvwxxyz0123456789"),0,18) . $dateshuffle;
 
-  // echo $userid."<br>";
-  // echo $date."<br>";
-  // echo $transaction_code."<br>";
+
 ?>
 
   <div class="container admin">
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    <form method="POST" action="order_confirmation.php">
         <div class="row mb-5">
           <div class="col-md-8">
               <h5>Shipping Area</h5>
               <div class="input-group">
-                <textarea class="form-control" aria-label="With textarea" name="shipping_adress"></textarea>
+                <textarea class="form-control" aria-label="With textarea" name="shipping_adress" id="shipping_add"></textarea>
               </div>
           </div>
           <div class="col-md-4">
@@ -76,6 +70,7 @@
                                              //For computing the sub total and grand total
                                              $subTotal = $quantity * $price;
                                              $grand_total += $subTotal;
+
                                             echo "<tr>";
                                             echo "<td>";
                                             echo $row['name'];
@@ -108,33 +103,8 @@
 
                     }
 
-                    $shipping_adress = $_POST['shipping_adress'];
-                    $payment_mode = $_POST['payment_mode'];
-                    $sql_orders = "INSERT INTO tbl_orders(user_id,transaction_code,purchase_date,status_id,payment_mode_id,shipping_address) 
-                    VALUES('$userid','$transaction_code','$date','1','$payment_mode','$shipping_adress')";
-
-                    $result_orders = mysqli_query($con,$sql_orders);
                     
-                    if ($result_orders) {
-                      $last_order = mysqli_insert_id($con);
-                      foreach($_SESSION['cart'] as $id => $quantity) {
-                        $sql_cart = "SELECT * FROM tbl_products where id ='$id'";
-                        $result_cart = mysqli_query($con,$sql_cart);
-                        if (mysqli_num_rows($result_cart)>0) {
-                            while ($crow = mysqli_fetch_assoc($result_cart)) {
-                              // echo $last_order."<br>";
-                              // echo $id."<br>";
-                              // echo $quantity."<br>";
-                              $price = $crow['price'];
-                              $sql_order_items = "INSERT INTO tbl_order_items(orders_id,products_id,quantity,price) 
-                              VALUES('$last_order','$id ','$quantity','$price')";
-                              mysqli_query($con,$sql_order_items);
-                            }
-                        }
-                      }
-                      $_SESSION['cart'] = array();
-                    }
-                    unset($_SESSION['item_count']);
+                    
                     ?>                
               </tbody>
               <th scope="col"></th>
@@ -148,7 +118,7 @@
         <div class="row">
           <div class="col-6"></div>
           <div class="col-3">
-              <button type="submit" class="btn btn-warning">Place Order</button>
+              <button type="submit" class="btn btn-warning" >Place Order</button>
           </div>
         </div>
     </form>

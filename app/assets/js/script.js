@@ -23,8 +23,8 @@ function validate() {
 
 $("#username").keyup("click", validate);
 function confirmPass(){
-	let pass = $("#password").val();
-	let cpass = $("#cpassword").val();
+	let pass = $("#hpassword").val();
+	let cpass = $("#chpassword").val();
 	if(pass == cpass){
 		$("#passconf").text("Password matched");
 		$("#passconf").css("color","green");
@@ -37,7 +37,7 @@ function confirmPass(){
 
 $(document).ready(()=>{
 	$("#btn_changepass").click(()=>{
-		let pass = $("#password").val();
+		let pass = $("#hpassword").val();
 		$.ajax({
 			url:"../controllers/change_password.php",
 			method:"POST",
@@ -46,8 +46,8 @@ $(document).ready(()=>{
 			success:function(data)
 			{		
 				alert(data);
-				$("#password").val('');	
-				$("#cpassword").val('');	
+				$("#hpassword").val('');	
+				$("#chpassword").val('');	
 			}
 
 		});	
@@ -55,7 +55,38 @@ $(document).ready(()=>{
 	})
 });
 
+$(document).ready(()=>{
+	$("#btn_addBrand").click(()=>{
+		let brand = $("#brand").val();
+		$.ajax({
+			url:"../controllers/add_brand.php",
+			method:"POST",
+			data:{brand:brand},
+			dataType:"text",
+			success:function(data){
+				$("#suc").html(data); 	
+			}
 
+		});
+	})
+});
+
+// $(document).ready(()=>{
+// 	$("#btn_placeOrder").click(()=>{
+// 		let payment_mode = $("#inputGroupSelect01").val();
+// 		let shipping_adress = $("#shipping_add").val();
+// 		$.ajax({
+// 			url:"../controllers/order_confirmation.php",
+// 			method:"POST",
+// 			data:{payment_mode:payment_mode,shipping_adress:shipping_adress},
+// 			dataType:"text",
+// 			success:function(data){
+// 				alert(data); 	
+// 			}
+
+// 		});
+// 	})
+// });
 
 
 $(document).ready(()=>{
