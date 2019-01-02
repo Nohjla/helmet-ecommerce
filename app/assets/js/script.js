@@ -54,6 +54,10 @@ $(document).ready(()=>{
 
 	})
 });
+
+
+
+
 $(document).ready(()=>{
 	$("#btn_register").click(()=>{
 		let lname = $("#lname").val();

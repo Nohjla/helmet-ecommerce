@@ -4,6 +4,32 @@
 <div class="parent-class" id="langind-page">
 </div>
 
+
+
+<div class="container-fluid">
+	<div class="row">
+	<?php 
+		require_once "../controllers/connection.php";
+
+
+		$sql = "SELECT * from tbl_products ORDER BY id DESC LIMIT 4";
+
+		$result = mysqli_query($con,$sql);
+		if(mysqli_num_rows($result) > 0)
+		{
+			while($row = mysqli_fetch_assoc($result)) {
+				echo "<div class='col-md-3'>
+				<img src='$row[image_path]' class='img-fluid'> 
+				<span class='badge badge-danger'>Hot</span>
+				<p class='text-center'><strong>New Arrivals</strong></p>
+				</div>";
+			}
+		}
+
+	?>
+	</div>
+</div>
+
 <div class="container-fluid">
 	<div class="row mt-2">
 		<div class="col-md-6 col-sm-6 mt-2">
@@ -28,14 +54,7 @@
 	</div>
 </div>
 
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-4"></div>
-		<div class="col-md-4"></div>
-		<div class="col-md-4"></div>
-		<div class="col-md-4"></div>
-	</div>
-</div>
+
 
 
 

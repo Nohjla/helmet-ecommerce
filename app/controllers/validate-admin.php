@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once "connection.php";
 
 $admin_user = $_POST['admin_user'];
@@ -9,10 +10,11 @@ $sql = "SELECT * from tbl_admin WHERE admin_username = '$admin_user' && admin_pa
 $result = mysqli_query($con,$sql);
 
 if ($result) {
-	header('Location: ../views/index.php');
+	$_SESSION["admin"] = "admin";
+	header('Location: ../views/dashboard.php');
 }
 else{
-	header('Location:../views/register.php');
+	header('Location:../views/admin.php');
 }
 
 ?>

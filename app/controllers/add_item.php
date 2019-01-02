@@ -1,9 +1,44 @@
 <?php require_once "../partials/header.php";?>
 <?php require_once "../controllers/connection.php"; ?>
-
+<section class="mp">
 <div class="container table-hover">
+
+  <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Add New Brand
+
+  </a>
+  <a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1">
+    Add New Brand
+  </a>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <form >
+    	<div class="form-group">
+		  <div class="container">
+		    <label for="contact">* Contact</label>
+		    <span></span>
+		    <input type="text" class="form-control" id="contact">
+		    </input>
+		    <span></span>
+		  </div>
+	  	</div>
+
+    	<button type="button" class="btn btn-success" id="btn_addItem">Register</button>
+    </form>
+  </div>
+</div>
+<div class="collapse" id="collapseExample1">
+  <div class="card card-body">
+    <form >
+    	b
+    </form>
+  </div>
+</div>
+
+
 <form action="validate-add_item.php" method="POST" enctype="multipart/form-data">
-	Choose brand:
+	Choose Existing brand:
+
 	<div class="form-group">
 	<select class="form-control" name="brand">
 	<?php
@@ -34,6 +69,7 @@
 
 </form>
 </div>
+</section>
 
 
-<?php require_once "../";?>
+<?php require_once "../partials/footer.php";?>

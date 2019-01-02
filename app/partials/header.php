@@ -23,10 +23,36 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="index.php"><i class="fas fa-home" style="color:white;"></i></a>
+        <?php  if(isset($_SESSION["admin"])){
+          echo "<a class='navbar-brand' href='../views/dashboard.php'><i class='fas fa-home' style='color:white;'> Dashboard</i></a>";
+        }
+         else{     
+        ?>
 
+        <a class="navbar-brand" href="../views/index.php"><i class="fas fa-home" style="color:white;"></i></a>
+        <?php }?>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-5">
+
+          <?php  if(isset($_SESSION["admin"])){
+
+              echo "<li class='nav-item pr-3'>
+                    <a class='nav-link' href='#'><i class='fab fa-product-hunt'></i> Banner</a>
+                    </li>
+                    <li class='nav-item pr-3'>
+                    <a class='nav-link' href='../controllers/aed-product.php'><i class='fab fa-product-hunt'></i> Product</a>
+                    </li>
+                    <li class='nav-item pr-3'>
+                    <a class='nav-link' href='#'><i class='fab fa-product-hunt'></i> Account</a>
+                    </li>
+                    <li class='nav-item pr-3'>
+                    <a class='nav-link' href='../controllers/logout.php'><i class='fas fa-hiking'></i> Log Out</a>
+                    </li>
+                    ";
+
+            }
+            else{
+            ?>
             <li class="nav-item pr-3">
               <a class="nav-link" href="../views/home.php"><i class="fab fa-product-hunt"></i> Products</a>
             </li>
@@ -58,7 +84,7 @@
               }
 
             ?>
-            
+            <?php }?>
           </ul>
         </div>
       </nav>
