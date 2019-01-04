@@ -16,10 +16,10 @@ if(mysqli_num_rows($result) > 0){
 				</div>
 				<div class='col-md-7'>
 					<div class='row'>
-					<p>$row[produc_description]</p>
+					<p class='desc'>$row[produc_description]</p>
 					</div>
 					<div class='row'>
-						<div class='col-md-4'>
+						<div class='col-md-6'>
 							<div class='input-group'>
 			                <input type='button' value='-'' class='button-minus' data-field='quantity'>
 								<input type='number' step='1' min='1' max='10' value='1' name='quantity' class='quantity-field' id='quantity$row[id]' onkeypress='return event.charCode >= 48 && event.charCode <= 57' disabled>
@@ -27,7 +27,9 @@ if(mysqli_num_rows($result) > 0){
 							</div>
 						</div>
 						<div class='col-md-6 mt-4'>
-							<a href='#' id='addToCart' data-id='$row[id]'><i class='fas fa-cart-plus'></i> Add to Cart</a>
+							<p class='m-1'>
+							<a href='#' class='adc' id='addToCart' data-id='$row[id]'><i class='fas fa-cart-plus'></i> Add to Cart</a>
+							</p>
 							<i class='far fa-star ml-2'></i>
 	                        <i class='far fa-star'></i>
 	                        <i class='far fa-star'></i>

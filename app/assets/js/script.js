@@ -373,6 +373,21 @@ function showProduct(productID){
 		})
 	
 }
+function viewTracking(){
+	let sdate = $("#startDate").val();
+	let edate = $("#endDate").val();
+	
+	$.ajax({
+		url:"../controllers/search-tracking.php",
+		method:"POST",
+		data:{sdate:sdate,edate:edate},
+		dataType:"text",
+		success:function(data){
+			$("#trackingDiv").html(data);
+		}
+	})
+
+}
 
 function showTrans(transCode){
 		$.ajax({
@@ -398,6 +413,7 @@ function showTrans(transCode){
 				success:function(data){
 					$('a[href="cart.php"]').html(data);
 					loadCart();
+					location.reload();
 				}
 			})	
  		}

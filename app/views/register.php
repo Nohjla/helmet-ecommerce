@@ -2,7 +2,7 @@
 ?>
 
 <div class="container admin">
-<p class="text-danger"><em>If you don't have account please fill up all required(*) information in this form to register or click sign-in.</em></p>
+<p class="text-danger"><em>If you don't have account please fill up all required(*) information in this form to register.</em></p>
 
 	<form action="" method="POST">
 	  <div class="form-group">
@@ -78,7 +78,7 @@
 
 	  <div class="form-group">
 	  	<div class="container">
-		    <label for="address">* Address</label>
+		    <label for="address">* Address <em class="text-danger">Please insert your complete address</em></label>
 		    <span></span>
 		    <textarea class="form-control" id="address"></textarea>
 		    <span></span>

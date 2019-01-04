@@ -38,8 +38,7 @@ foreach($_SESSION['cart'] as $id=> $quantity) {
                             <div class='col-md-3'>
                                 <img src='$row[image_path]' class='img-fluid'>
                                <div class='row mt-2 ml-2'>
-                                  <a href='#' class='ml-5 mr-2' onclick='deleteItem($id)' >Edit</a>
-                                  <a href='#' class='ml-3 mr-3' onclick='deleteItem($id)' >Remove</a>
+                                  <a href='#' class='ml-3 mr-3' onclick='deleteItem($id)' ><i class='fas fa-trash-alt text-danger'> Remove</i></a>
                                </div>
                             </div>
                             <div class='col-md-3 mt-3'>

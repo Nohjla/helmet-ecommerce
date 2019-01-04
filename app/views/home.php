@@ -21,7 +21,7 @@
 	</div>
 	<div class="row ml-1 mr-1">
 		<div class="col-md-2 mb-2">
-			<h1 id ="nowCategories"><img src="../assets/images/logo/logo2.png" width="150" height="70" alt=""></h1>
+			<h1 id ="nowCategories"><img src="../assets/images/logo/logo2.png" width="150" height="70" alt="" class='img-fluid'></h1>
 				<div class="row text">
 					<div class ='list-group w-100 text-center'>
 				      <?php require_once '../controllers/connection.php';
@@ -57,12 +57,12 @@
 						                    <div class='card h-100'>
 						                       		<img src='$row[image_path]' class='img-fluid'>
 						                          <div class='card-body'>
-						                          	<div class='row'>
+						                         
 						                            <h6 class='card-title'><a href='#' class='text-body' onclick='showProduct($row[id])'>$row[name]</a></h6>
-						                            </div>
-						                            <div class='row'>
+						                        
+						                         
 						                            <h5 class='price'>₱ $row[price]</h5>
-						                            </div>
+						                         
 						                            <div class='row ml-1'>
 						                            <div class='input-group'>
 						                            <input type='button' value='-'' class='button-minus' data-field='quantity'>

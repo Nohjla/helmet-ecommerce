@@ -2,6 +2,7 @@
 	margin:0;
 	padding: 0;
 	box-sizing: border-box;
+  font-family: 'PT Sans', sans-serif;
 }
 
 #regcontainer{
@@ -12,7 +13,7 @@
 #langind-page{
 	margin-top: 65px;
 	height: 750px;
-	background-image: url("../images/banner/Gladiator_1_Skull_Skin.jpg");
+	background-image: url("../images/banner/pexels-photo-533540.jpeg");
 	background-attachment: fixed;
 	/*background-position: center;*/
 	background-repeat: no-repeat;
@@ -136,4 +137,100 @@ input[type="number"] {
 }
 .mp{
   margin-top: 60px !important;
+}
+@media only screen and (max-width: 767px){
+  .mid{
+    padding-left: 60px;
+  }
+  #langind-page{
+  margin-top: 65px;
+  height: 300px;
+  background-image: url("../images/banner/pexels-photo-229014.jpeg");
+  background-attachment: fixed;
+  /*background-position: center;*/
+  background-repeat: no-repeat;
+  }
+}
+
+@media only screen and (max-width: 1025px){
+  .input-group .quantity-field {
+  position: relative;
+  height: 38px;
+  left: -6px;
+  text-align: center;
+  width: 40px;
+  display: inline-block;
+  font-size: 13px;
+  margin: 0 0 5px;
+  resize: vertical;
+}
+  .desc{
+    font-size: 20px;
+  }
+  .adc{
+    font-size: 18px !important;
+  }
+}
+
+@media only screen and (max-width: 768px){
+  .card{
+  font-size: 12px;
+}
+  .price{
+    font-size: 12px;
+  }
+
+.input-group {
+  clear: both;
+  margin: 0;
+  position: relative;
+}
+.input-group input[type='button'] {
+  background-color: #eeeeee;
+  min-width: 20px;
+  width: auto;
+  transition: all 300ms ease;
+}
+.input-group .button-minus,
+.input-group .button-plus {
+  font-weight: bold;
+  height: 38px;
+  padding: 0;
+  width: 10px !important;
+  position: relative;
+}
+  #addToCart{
+    font-size: 10px;
+  }
+}
+@media only screen and (max-width: 450px){
+    .card-title{
+  font-size: 18px;
+  }
+  .price{
+    font-size: 16px;
+  }
+  #addToCart{
+    font-size: 16px;
+  }
+  .input-group {
+  clear: both;
+  margin: 0;
+  position: relative;
+  }
+  .input-group input[type='button'] {
+    background-color: #eeeeee;
+    min-width: 38px;
+    width: auto;
+    transition: all 300ms ease;
+  }
+  .input-group .button-minus,
+  .input-group .button-plus {
+    font-weight: bold;
+    height: 38px;
+    padding: 0;
+    width: 10px !important;
+    position: relative;
+  }
+
 }

@@ -10,10 +10,10 @@ $sql = "SELECT o.price 'price', t.transaction_code 'code',t.purchase_date 'pdate
 		while ($row = mysqli_fetch_assoc($result)) {
 			$data .="<hr>
 			<div class='row m-2'>
-			<div class='col-md-6'>
+			<div class='col-md-6 col-sm-12'>
 			<img src='$row[image]' class='img-fluid'>
 			</div>
-			<div class='col-md-6'>
+			<div class='col-md-6 col-sm-12'>
 			<div class='row'>
 			<p class='border p-2 rounded bg-dark text-light'><em>$row[description]</em></p>
 			</div>

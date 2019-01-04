@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2019 at 09:26 AM
+-- Generation Time: Jan 04, 2019 at 09:20 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -47,9 +47,7 @@ CREATE TABLE `tbl_account` (
 --
 
 INSERT INTO `tbl_account` (`id`, `fname`, `mname`, `lname`, `gender`, `address`, `contact`, `date_created`, `bday`, `username`, `password`) VALUES
-(1, 'sample', 'sample', 'sample', 'male', 'makati city', 2147483647, '2018-12-05', '1991-06-05', 'sample2@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef'),
-(2, 'sample3', 'sample3', 'sample3', 'male', 'awdawdawd', 65464060, '2018-12-20', '1996-02-06', 'sample3@gmail.com', '601f1889667efaebb33b8c12572835da3f027f78'),
-(3, 'Maligro', 'Alden', 'Aljhon', 'male', 'Taguig City', 5482656, '2019-01-03', '1991-02-05', 'maligroaljhon@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+(3, 'Maligro', 'Alden', 'Aljhon', 'male', '93-J Champaca St Western Bicutan Taguig City', 5482656, '2018-01-03', '1991-02-05', 'maligroaljhon@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 
 -- --------------------------------------------------------
 
@@ -104,6 +102,7 @@ CREATE TABLE `tbl_orders` (
   `purchase_date` varchar(255) DEFAULT NULL,
   `status_id` int(11) NOT NULL,
   `payment_mode_id` int(11) NOT NULL,
+  `payment` varchar(255) NOT NULL,
   `shipping_address` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -111,9 +110,8 @@ CREATE TABLE `tbl_orders` (
 -- Dumping data for table `tbl_orders`
 --
 
-INSERT INTO `tbl_orders` (`id`, `user_id`, `transaction_code`, `purchase_date`, `status_id`, `payment_mode_id`, `shipping_address`) VALUES
-(1, 3, 'Gn95CqMfm6Zx7gt4ak3012019', '3/01/2019', 1, 2, 'Makati City'),
-(2, 3, 'P5kDjUzgr2VI98QEYM3012019', '3/01/2019', 1, 2, 'Taguig City');
+INSERT INTO `tbl_orders` (`id`, `user_id`, `transaction_code`, `purchase_date`, `status_id`, `payment_mode_id`, `payment`, `shipping_address`) VALUES
+(35, 3, 'i3GyD8e1bhxnYgI5cR4012019', '2018-11-04', 1, 1, 'cash', '93-J Champaca St Western Bicutan Taguig City');
 
 -- --------------------------------------------------------
 
@@ -134,9 +132,7 @@ CREATE TABLE `tbl_order_items` (
 --
 
 INSERT INTO `tbl_order_items` (`id`, `orders_id`, `products_id`, `quantity`, `price`) VALUES
-(1, 1, 6, 1, '32000'),
-(2, 2, 7, 2, '32000'),
-(3, 2, 8, 1, '32000');
+(30, 35, 8, 1, '32000');
 
 -- --------------------------------------------------------
 
@@ -154,7 +150,7 @@ CREATE TABLE `tbl_payment_mode` (
 --
 
 INSERT INTO `tbl_payment_mode` (`id`, `name`) VALUES
-(1, 'COD'),
+(1, 'Cash On Delivery'),
 (2, 'PayPal');
 
 -- --------------------------------------------------------
@@ -319,7 +315,7 @@ ALTER TABLE `tbl_types`
 -- AUTO_INCREMENT for table `tbl_account`
 --
 ALTER TABLE `tbl_account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_admin`
@@ -331,19 +327,19 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_categories`
 --
 ALTER TABLE `tbl_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_items`
 --
 ALTER TABLE `tbl_order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `tbl_payment_mode`
@@ -355,7 +351,7 @@ ALTER TABLE `tbl_payment_mode`
 -- AUTO_INCREMENT for table `tbl_products`
 --
 ALTER TABLE `tbl_products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tbl_status`

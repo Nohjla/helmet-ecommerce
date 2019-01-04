@@ -2,12 +2,13 @@
 	require_once '../partials/header.php';
 ?>
 <div class="parent-class" id="langind-page">
+	
 </div>
 
 
 
 <div class="container-fluid">
-	<div class="row">
+	<div class="row mid">
 	<?php 
 		require_once "../controllers/connection.php";
 
@@ -18,7 +19,8 @@
 		if(mysqli_num_rows($result) > 0)
 		{
 			while($row = mysqli_fetch_assoc($result)) {
-				echo "<div class='col-md-3'>
+				echo "
+				<div class='col-md-3 col-sm-3'>
 				<img src='$row[image_path]' class='img-fluid'> 
 				<span class='badge badge-danger'>Hot</span>
 				<p class='text-center'><strong>New Arrivals</strong></p>

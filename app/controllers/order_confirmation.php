@@ -1,3 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="icon" type="image/png/gif" href="../assets/images/logo/logo1.png">
+
+    <title>Helms</title>
+</head>
+<body>
+
 <?php
 session_start();
 require_once "connection.php";
@@ -16,7 +36,7 @@ use PayPal\Api\Payment;
   require "../../vendor/phpmailer/phpmailer/src/Exception.php";
 
 $userid = $_SESSION['userid'];
-$date = date('j'."/".'m'."/".'o');
+$date = date('o'."-".'m'."-".'d');
 $dateshuffle = date('j'.'m'.'o');
 $transaction_code = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuuvwxxyz0123456789"),0,18) . $dateshuffle;
 
@@ -39,12 +59,14 @@ $grand_total = 0;
 
 if($payment_mode == 2)
 {
-$sql_orders = "INSERT INTO tbl_orders(user_id,transaction_code,purchase_date,status_id,payment_mode_id,shipping_address) 
-VALUES('$userid','$transaction_code','$date','1','$payment_mode','$shipping_adress')";
+$_SESSION['trans_code'] = $transaction_code;
+$sql_orders = "INSERT INTO tbl_orders(user_id,transaction_code,purchase_date,status_id,payment_mode_id,payment,shipping_address) 
+VALUES('$userid','$transaction_code','$date','1','$payment_mode','none','$shipping_adress')";
 $result_orders = mysqli_query($con,$sql_orders);
                     
                     if ($result_orders) {
                       $last_order = mysqli_insert_id($con);
+                      $_SESSION['order_item_id'] = $last_order;
                       foreach($_SESSION['cart'] as $id => $quantity) {
                         $sql_cart = "SELECT * FROM tbl_products where id ='$id'";
                         $result_cart = mysqli_query($con,$sql_cart);
@@ -63,6 +85,7 @@ $items[] = $indiv_item;
                               $sql_order_items = "INSERT INTO tbl_order_items(orders_id,products_id,quantity,price) 
                               VALUES('$last_order','$id ','$quantity','$price')";
                               mysqli_query($con,$sql_order_items);
+                              
                             }
                         }
                       }
@@ -148,8 +171,9 @@ unset($_SESSION['item_count'],$_SESSION['cart']);
 }
 elseif($payment_mode == 1)
 {
-$sql_orders = "INSERT INTO tbl_orders(user_id,transaction_code,purchase_date,status_id,payment_mode_id,shipping_address) 
-VALUES('$userid','$transaction_code','$date','1','$payment_mode','$shipping_adress')";
+$_SESSION['trans_code'] = $transaction_code;
+$sql_orders = "INSERT INTO tbl_orders(user_id,transaction_code,purchase_date,status_id,payment_mode_id,payment,shipping_address) 
+VALUES('$userid','$transaction_code','$date','1','$payment_mode','cash','$shipping_adress')";
 
 $result_orders = mysqli_query($con,$sql_orders);
                     
@@ -180,7 +204,7 @@ $email_subject = "Your transaction code : $transaction_code";
 $email_body = "
 		<h1>Thank you for shopping!</h1>
 
-		<p>Your order will be delivered in 3-4 days in </p>
+		<p>Your order will be delivered in 3-4 days after confirmation</p>
 
 		<small>Transaction reference:$transaction_code</small>
 		<br>
@@ -212,6 +236,42 @@ $mail->send();
 }catch(Exception $e){
 }
 unset($_SESSION['item_count'],$_SESSION['cart']);
-echo "success";
+echo "<section class='mp ml-2'>
+      <div class='container'>
+
+      <div class='row'>
+      <i class='far fa-check-circle fa-7x text-success'></i>
+      <h4>Transaction successfully completed.</h4>
+      </div>
+
+      <div class='row'>
+      <p><strong>Transaction Code: </strong>$transaction_code</p>
+      </div>
+
+      <div class='row'>
+      <p><strong>Date of transaction: </strong>$date</p>
+      </div>
+
+      <div class='row'>
+      <p><strong>Transaction sent to email: </strong>$_SESSION[email]</p>
+      </div>
+
+      <div class='row'>
+      <p><strong>Mode of payment: </strong>Cash on delivery</p>
+      </div>
+
+      <div class='row'>
+      <p><a href='../views/home.php'>Continue shopping...</a></p>
+      </div>
+
+      </div>
+      </section>";
 }
+else{
+  echo "<script>alert('Please choose mode of payment!')</script>";
+  echo "<script type='text/javascript'> document.location = '../controllers/checkout.php'; </script>";
+}
+
+
+require_once"../partials/footer.php";
 ?>

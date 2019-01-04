@@ -17,7 +17,17 @@
           <div class="col-md-8">
               <h5>Shipping Area</h5>
               <div class="input-group">
-                <textarea class="form-control" aria-label="With textarea" name="shipping_adress" id="shipping_add"></textarea>
+                <?php 
+                  $email = $_SESSION['email'];
+                 $sqlshp = "SELECT address from tbl_account where username = '$email'";
+                 $resultshp = mysqli_query($con,$sqlshp);
+                 if (mysqli_num_rows($resultshp) > 0) {
+                    while ($rowshp = mysqli_fetch_assoc($resultshp)) {
+                      echo "<textarea class='form-control' aria-label='With textarea' name='shipping_adress' id='shipping_add'>$rowshp[address]</textarea>";
+                    }
+                 }
+                ?>
+                
               </div>
           </div>
           <div class="col-md-4">
