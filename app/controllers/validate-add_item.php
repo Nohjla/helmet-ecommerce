@@ -29,7 +29,7 @@
 					$sql = "INSERT INTO tbl_products(name,price,produc_description,image_path,categories_id) VALUES('$name','$price','$product_description','$filedestination','$brand')";
 					$result = mysqli_query($con,$sql);
 
-					echo "sucess";
+					echo "<script type='text/javascript'> alert('Item successfully added'); document.location = '../controllers/aed-product.php'; </script>";
 				}
 				else{
 					echo "Your file was too big";

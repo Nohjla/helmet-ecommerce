@@ -57,7 +57,7 @@ $result_orders = mysqli_query($con,$sql_orders);
 $indiv_item = new Item();
 $indiv_item ->setName($name)
       ->setCurrency("PHP")
-      ->setQuantity(1)
+      ->setQuantity($quantity)
       ->setPrice($price); //per item
 $items[] = $indiv_item;
                               $sql_order_items = "INSERT INTO tbl_order_items(orders_id,products_id,quantity,price) 
@@ -89,7 +89,7 @@ $email_subject = "Your transaction code : $transaction_code";
 $email_body = "
 		<h1>Thank you for shopping!</h1>
 
-		<p>Your order will be delivered in 3-4 days in </p>
+		<p>Your order will be delivered in 3-4 days after confirmation</p>
 
 		<small>Transaction reference:$transaction_code</small>
 		<br>

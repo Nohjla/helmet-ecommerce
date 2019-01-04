@@ -64,7 +64,8 @@ $(document).ready(()=>{
 			data:{brand:brand},
 			dataType:"text",
 			success:function(data){
-				$("#suc").html(data); 	
+				alert('New Brand' + ' '+ data + ' ' + 'is successfully added');
+				location.reload();
 			}
 
 		});
@@ -200,9 +201,6 @@ $('a[href="#"]').on("click",function(){
 	//get the product id
 	let productid = $(this).attr("data-id");
 	let quantity = $("#quantity"+productid).val();
-
-	console.log("Product Id :" + productid);
-	console.log("Quantity :" + quantity);
 	
 	$.ajax({
 		url:"../controllers/addToCart.php",
@@ -242,7 +240,6 @@ function changeNoItems(id){
 	let grandtotal = items * newPrice;
 
 	$.post("../controllers/updateCart.php",{id:id,quantity:items},function(data){
-		console.log(data);
 		$('#icart').html(data);
 	})
 
@@ -264,8 +261,107 @@ function changeNoItems(id){
 
 
  }
+
+function updateProductName(nid){
+	let pname = $("#pname").val();
+	$.ajax({
+		url:"../controllers/update-product-name.php",
+		method:"POST",
+		data:{id:nid,name:pname},
+		dataType:"text",
+		success:function(data){
+			alert(data);
+			location.reload();
+		}
+	})
+}
+function updateProductPrice(pid){
+	let pprice = $("#pprice").val();
+	$.ajax({
+		url:"../controllers/update-product-price.php",
+		method:"POST",
+		data:{id:pid,price:pprice},
+		dataType:"text",
+		success:function(data){
+			alert(data);
+			location.reload();
+		}
+	})
+
+}
+function updateProductDesc(did){
+	let pdesc = $("#pdesc").val();
+	$.ajax({
+		url:"../controllers/update-product-description.php",
+		method:"POST",
+		data:{id:did,description:pdesc},
+		dataType:"text",
+		success:function(data){
+			alert(data);
+			location.reload();
+		}
+	})
+}
+
+function updateProductBrand(bid){
+	let brand = $("#brand").val();
+	$.ajax({
+		url:"../controllers/update-product-brand.php",
+		method:"POST",
+		data:{id:bid,brand:brand},
+		dataType:"text",
+		success:function(data){
+			alert(data);
+			location.reload();
+		}
+	})
+}
+
+function deleteProduct(deleteItem){
+
+	let ans = confirm("are you sure you want to delete this item");
+ 		if(ans){
+ 			$.ajax({
+ 				url:"../controllers/delete-item.php",
+ 				method:"POST",
+ 				data:{id:deleteItem},
+ 				dataType:"text",
+ 				success:function(data){
+ 					$("#productInfoTable").html(data);
+ 				}
+
+ 			})
+ 		}
+}
+
+function updateStatus(orderID){
+	
+	$.ajax({
+		url:"../controllers/update-order-status.php",
+		method:"POST",
+		data:{id:orderID},
+		dataType:"text",
+		success:function(data){
+			$("#transInfo").html(data)
+		}
+	})
+}
+
+function updateProduct(updateID){
+	$.ajax({
+		url:"../controllers/update-product.php",
+		method:"POST",
+		data:{id:updateID},
+		dataType:"text",
+		success:function(data){
+			$("#productInfo").html(data);
+		}
+	})
+
+}
+
 function showProduct(productID){
-	console.log(productID);
+
 		$.ajax({
 			url:"../controllers/view-single-item.php",
 			method:"POST",
@@ -273,6 +369,19 @@ function showProduct(productID){
 			dataType:"text",
 			success:function(data){
 				$("#products").html(data);
+			}
+		})
+	
+}
+
+function showTrans(transCode){
+		$.ajax({
+			url:"../controllers/transaction_item.php",
+			method:"POST",
+			data:{id:transCode},
+			dataType:"text",
+			success:function(data){
+				$("#transaction_item").html(data);
 			}
 		})
 	
@@ -288,7 +397,6 @@ function showProduct(productID){
 				dataType:"text",
 				success:function(data){
 					$('a[href="cart.php"]').html(data);
-					console.log(data);
 					loadCart();
 				}
 			})	
@@ -312,8 +420,6 @@ function showCategories(categoryID){
 }
 
 function findCategories(fcategoryID){
-
-	console.log(fcategoryID);
 	$.ajax({
 			url:"../controllers/find_items.php",
 			method:"POST",

@@ -3,16 +3,15 @@
 <section class="mp">
 <div class="container table-hover">
 
-  <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Add New Brand
-
+  <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" class="text-dark">
+    Add New Brand Here <i class="fas fa-angle-down"></i>
   </a>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
   	<form action="" method="POST">
   		<input type="text" class="form-control" id="brand" placeholder="Brand">
-  		<span id="suc"></span>
-  		<button type="button" class="btn btn-success" id="btn_addBrand">Register</button>
+
+  		<button type="button" class="btn btn-success mt-2" id="btn_addBrand">Register</button>
   	</form>
 
   </div>
@@ -34,7 +33,6 @@
 			}
 		}
 	?>
-		
 	</select>
 	</div>
 	<div class="form-group">

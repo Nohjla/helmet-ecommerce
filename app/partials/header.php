@@ -43,7 +43,7 @@
                     <a class='nav-link' href='../controllers/aed-product.php'><i class='fab fa-product-hunt'></i> Product</a>
                     </li>
                     <li class='nav-item pr-3'>
-                    <a class='nav-link' href='#'><i class='fab fa-product-hunt'></i> Account</a>
+                    <a class='nav-link' href='../controllers/aed-account.php'><i class='fab fa-product-hunt'></i> Transaction</a>
                     </li>
                     <li class='nav-item pr-3'>
                     <a class='nav-link' href='../controllers/logout.php'><i class='fas fa-hiking'></i> Log Out</a>
@@ -69,6 +69,7 @@
                       <a class='nav-link dropdown-toggle' href='#' id='navbarDropdownMenuLink' role='button' data-toggle='dropdown' aria-haspopup=''true' aria-expanded='false'>Account</a>
               <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdownMenuLink'>
               <a class='dropdown-item' href='#' data-toggle='modal' data-target='#exampleModalCenter1'><i class='fas fa-cog'></i> Change Password</a>
+              <a class='dropdown-item' href='../controllers/view_tracking.php'><i class='fas fa-truck-moving'></i> Tracking Order</a>
               <a class='dropdown-item' href='../controllers/logout.php'><i class='fas fa-hiking'></i> Logout</a>
               </div>
             </li>";
