@@ -262,6 +262,14 @@ function changeNoItems(id){
 
  }
 
+function loadProduct(){
+	$.get("../controllers/load-product-table.php",function(data){
+
+		$("#productInfoTable").html(data);
+
+	});
+}
+
 function updateProductName(nid){
 	let pname = $("#pname").val();
 	$.ajax({
@@ -270,8 +278,9 @@ function updateProductName(nid){
 		data:{id:nid,name:pname},
 		dataType:"text",
 		success:function(data){
-			alert(data);
-			location.reload();
+			alert("successfully changed");
+			$("#ename").html(data);
+			loadProduct();
 		}
 	})
 }
@@ -283,8 +292,9 @@ function updateProductPrice(pid){
 		data:{id:pid,price:pprice},
 		dataType:"text",
 		success:function(data){
-			alert(data);
-			location.reload();
+			alert("successfully changed");
+			$("#prname").html(data);
+			loadProduct();
 		}
 	})
 
@@ -297,8 +307,9 @@ function updateProductDesc(did){
 		data:{id:did,description:pdesc},
 		dataType:"text",
 		success:function(data){
-			alert(data);
-			location.reload();
+			alert("successfully changed");
+			$("#descname").html(data);
+			loadProduct();
 		}
 	})
 }
@@ -311,8 +322,9 @@ function updateProductBrand(bid){
 		data:{id:bid,brand:brand},
 		dataType:"text",
 		success:function(data){
-			alert(data);
-			location.reload();
+			alert("successfully changed");
+			$("#brname").html(data);
+			loadProduct();
 		}
 	})
 }

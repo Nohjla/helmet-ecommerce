@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2019 at 09:20 PM
+-- Generation Time: Jan 06, 2019 at 03:38 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -111,7 +111,8 @@ CREATE TABLE `tbl_orders` (
 --
 
 INSERT INTO `tbl_orders` (`id`, `user_id`, `transaction_code`, `purchase_date`, `status_id`, `payment_mode_id`, `payment`, `shipping_address`) VALUES
-(35, 3, 'i3GyD8e1bhxnYgI5cR4012019', '2018-11-04', 1, 1, 'cash', '93-J Champaca St Western Bicutan Taguig City');
+(35, 3, 'i3GyD8e1bhxnYgI5cR4012019', '2018-11-04', 1, 1, 'cash', '93-J Champaca St Western Bicutan Taguig City'),
+(36, 3, 'frRzH7a4C8mglVtLI16012019', '2019-01-06', 1, 1, 'cash', '93-J Champaca St Western Bicutan Taguig City');
 
 -- --------------------------------------------------------
 
@@ -132,7 +133,8 @@ CREATE TABLE `tbl_order_items` (
 --
 
 INSERT INTO `tbl_order_items` (`id`, `orders_id`, `products_id`, `quantity`, `price`) VALUES
-(30, 35, 8, 1, '32000');
+(30, 35, 8, 1, '32000'),
+(31, 36, 7, 1, '32000');
 
 -- --------------------------------------------------------
 
@@ -173,7 +175,7 @@ CREATE TABLE `tbl_products` (
 --
 
 INSERT INTO `tbl_products` (`id`, `name`, `price`, `produc_description`, `image_path`, `categories_id`) VALUES
-(6, 'AGV CORSA R E2205', 2240.00, 'AGV CORSA R E2205 motorcycle helmet. Designed for uncompromising performance on the track, it offers most of the Pista GP Rs features, but with a carbon-fiberglass shell and adjustable vents.', '../assets/images/product/5c244e1aae2514.02946474.png', 1),
+(6, 'AGV CORSA R E2205', 2240.00, 'AGV CORSA R E2205 motorcycle helmet. Designed for uncompromising performance on the track, it offers most of the Pista GP Rs features, but with a carbon-fiberglass shell and adjustable vents.', '../assets/images/product/5c321177861815.64341614.png', 1),
 (7, 'PISTA GP R E2205 MONO', 32000.00, 'AGV PISTA GP R E2205 motorcycle helmet. The evolution of the groundbreaking Pista GP, the Moto GP helmet, itâ€™s the most protective helmet ever developed. Its new â€œBiplanoâ€ spoiler and its included hydration system bring AGVâ€™s safety and performanc', '../assets/images/product/5c24635bc3cf01.37400317.jpg', 1),
 (8, 'PISTA GP R E2205', 32000.00, 'AGV PISTA GP R E2205 motorcycle helmet. The evolution of the groundbreaking Pista GP, the Moto GP helmet, itâ€™s the most protective helmet ever developed. Its new â€œBiplanoâ€ spoiler and its included hydration system bring AGVâ€™s safety and performanc', '../assets/images/product/5c2463d5a1a428.74084366.png', 1),
 (9, 'VELOCE S TOP E2205', 32000.00, 'AGV VELOCE S E2205 motorcycle helmet. Thanks to this premium sport model from AGV, high-performance features typically found in a racing helmet are now available in a street-friendly package.', '../assets/images/product/5c24644b6dcbc3.37771095.png', 1),
@@ -315,7 +317,7 @@ ALTER TABLE `tbl_types`
 -- AUTO_INCREMENT for table `tbl_account`
 --
 ALTER TABLE `tbl_account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_admin`
@@ -327,19 +329,19 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_categories`
 --
 ALTER TABLE `tbl_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_items`
 --
 ALTER TABLE `tbl_order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `tbl_payment_mode`
