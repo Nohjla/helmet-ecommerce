@@ -20,6 +20,9 @@
 
 <?php
 session_start();
+if(!isset($_SESSION['email'])){
+  echo "<script type='text/javascript'> document.location = '../views/error404.php'; </script>";
+}
 require_once "connection.php";
   require "../../vendor/autoload.php";
 use PayPal\Rest\ApiContext;

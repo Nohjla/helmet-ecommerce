@@ -69,6 +69,7 @@
                       <a class='nav-link dropdown-toggle' href='#' id='navbarDropdownMenuLink' role='button' data-toggle='dropdown' aria-haspopup=''true' aria-expanded='false'>Account</a>
               <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdownMenuLink'>
               <a class='dropdown-item' href='#' data-toggle='modal' data-target='#exampleModalCenter1'><i class='fas fa-cog'></i> Change Password</a>
+              <a class='dropdown-item' href='../views/account.php'><i class='fas fa-info-circle'></i> Manage Account</a>
               <a class='dropdown-item' href='../controllers/view_tracking.php'><i class='fas fa-truck-moving'></i> Tracking Order</a>
               <a class='dropdown-item' href='../controllers/logout.php'><i class='fas fa-hiking'></i> Logout</a>
               </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2019 at 03:38 PM
+-- Generation Time: Jan 07, 2019 at 09:48 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -47,7 +47,7 @@ CREATE TABLE `tbl_account` (
 --
 
 INSERT INTO `tbl_account` (`id`, `fname`, `mname`, `lname`, `gender`, `address`, `contact`, `date_created`, `bday`, `username`, `password`) VALUES
-(3, 'Maligro', 'Alden', 'Aljhon', 'male', '93-J Champaca St Western Bicutan Taguig City', 5482656, '2018-01-03', '1991-02-05', 'maligroaljhon@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+(3, 'Maligro', 'Alden', 'Aljhon', 'male', '93-J Champaca St Western Bicutan Taguig City', 54826562, '2018-01-03', '1991-02-04', 'maligroaljhon@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 
 -- --------------------------------------------------------
 
@@ -112,7 +112,11 @@ CREATE TABLE `tbl_orders` (
 
 INSERT INTO `tbl_orders` (`id`, `user_id`, `transaction_code`, `purchase_date`, `status_id`, `payment_mode_id`, `payment`, `shipping_address`) VALUES
 (35, 3, 'i3GyD8e1bhxnYgI5cR4012019', '2018-11-04', 1, 1, 'cash', '93-J Champaca St Western Bicutan Taguig City'),
-(36, 3, 'frRzH7a4C8mglVtLI16012019', '2019-01-06', 1, 1, 'cash', '93-J Champaca St Western Bicutan Taguig City');
+(36, 3, 'frRzH7a4C8mglVtLI16012019', '2019-01-06', 1, 1, 'cash', '93-J Champaca St Western Bicutan Taguig City'),
+(37, 3, 'Ao9DuU1adqWePSh8py7012019', '2019-01-07', 1, 2, 'none', '93-J Champaca St Western Bicutan Taguig City'),
+(38, 3, 'tAoNWGuUbmKF2aiYnO7012019', '2019-01-07', 1, 2, 'PAY-7A682653RB456744FLQZPL2Q', '93-J Champaca St Western Bicutan Taguig City'),
+(39, 3, 'Zcmhbj6kLSX0YeyGRu7012019', '2019-01-07', 1, 2, 'PAY-3P040173LC0785035LQZPMJY', '93-J Champaca St Western Bicutan Taguig City'),
+(40, 3, 'iaeIyXMDUsnLR80HSJ7012019', '2019-01-07', 1, 1, 'cash', '93-J Champaca St Western Bicutan Taguig City');
 
 -- --------------------------------------------------------
 
@@ -134,7 +138,13 @@ CREATE TABLE `tbl_order_items` (
 
 INSERT INTO `tbl_order_items` (`id`, `orders_id`, `products_id`, `quantity`, `price`) VALUES
 (30, 35, 8, 1, '32000'),
-(31, 36, 7, 1, '32000');
+(31, 36, 7, 1, '32000'),
+(32, 37, 8, 1, '32000'),
+(33, 37, 9, 1, '32000'),
+(34, 38, 7, 1, '32000'),
+(35, 39, 9, 1, '32000'),
+(36, 40, 8, 1, '32000'),
+(37, 40, 7, 1, '32000');
 
 -- --------------------------------------------------------
 
@@ -329,19 +339,19 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_categories`
 --
 ALTER TABLE `tbl_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_items`
 --
 ALTER TABLE `tbl_order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `tbl_payment_mode`

@@ -22,6 +22,29 @@ function validate() {
 
 
 $("#username").keyup("click", validate);
+
+
+function validate2() {
+  var $result = $("#Updateresult");
+  var email = $("#Updateusername").val();
+  $result.text("");
+
+  if (validateEmail(email)) {
+    $result.text(email + " is valid");
+    $result.css("color", "green");
+  } else {
+    $result.text(email + " is not valid");
+    $result.css("color", "red");
+  }
+  return false;
+}
+// username update validation
+$("#Updateusername").keyup("click", validate2);
+
+
+
+
+
 function confirmPass(){
 	let pass = $("#hpassword").val();
 	let cpass = $("#chpassword").val();
@@ -195,6 +218,82 @@ $(document).ready(()=>{
 	})
 });
 // validation registration
+
+
+$(document).ready(()=>{
+	$("#btn_updateAccount").click(()=>{
+		let lname = $("#Updatelname").val();
+		let fname = $("#Updatefname").val();
+		let mname = $("#Updatemname").val();
+		let gender = $("input[name='Updategender']:checked").val();
+		let bday = $("#Updatebday").val();
+		let contact = $("#Updatecontact").val();
+		let address = $("#Updateaddress").val();
+		let username = $("#Updateusername").val();
+
+		let error_log = 0;
+		
+		if(lname == ""){
+			$("#Updatelname").prev().css("color","#dc3545");
+			$("#Updatelname").prev().html("required(*)");
+			error_log = 1;
+		}
+
+		if(fname == ""){
+			$("#Updatefname").prev().css("color","#dc3545");
+			$("#Updatefname").prev().html("required(*)");
+			error_log = 1;
+		}
+
+		if(!gender){
+			$("#Updateerr_gender").css("color","#dc3545");
+			$("#Updateerr_gender").html("required(*)");
+			error_log = 1;
+		}
+
+		if(bday == ""){
+			$("#Updatebday").prev().css("color","#dc3545");
+			$("#Updatebday").prev().html("required(*)");
+			error_log = 1;
+		}
+
+		if(contact == ""){
+			$("#Updatecontact").prev().css("color","#dc3545");
+			$("#Updatecontact").prev().html("required(*)");
+			error_log = 1;
+		}
+
+		if(address == ""){
+			$("#Updateaddress").prev().css("color","#dc3545");
+			$("#Updateaddress").prev().html("required(*)");
+			error_log = 1;
+		}
+
+
+		if(username == ""){
+			$("#Updateusername").prev().css("color","#dc3545");
+			$("#Updateusername").prev().html("required(*)");
+			error_log = 1;
+		}
+
+
+		if (error_log == 0) {
+			$.ajax({
+				url:"../controllers/update-account.php",
+				method:"POST",
+				data:{lname:lname,mname:mname,fname:fname,gender:gender,bday:bday,contact:contact,address:address,username:username},
+				dataType:"text",
+				success:function(data)
+				{
+					alert(data);
+					location.reload();
+				}
+			});
+		}
+	})
+});
+// validation account update
+
 
 
 $('a[href="#"]').on("click",function(){
