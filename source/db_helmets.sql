@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2019 at 09:48 AM
+-- Generation Time: Feb 15, 2019 at 11:06 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -47,7 +47,8 @@ CREATE TABLE `tbl_account` (
 --
 
 INSERT INTO `tbl_account` (`id`, `fname`, `mname`, `lname`, `gender`, `address`, `contact`, `date_created`, `bday`, `username`, `password`) VALUES
-(3, 'Maligro', 'Alden', 'Aljhon', 'male', '93-J Champaca St Western Bicutan Taguig City', 54826562, '2018-01-03', '1991-02-04', 'maligroaljhon@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+(3, 'Maligro', 'Alden', 'Aljhon', 'male', '93-J Champaca St Western Bicutan Taguig City', 54826562, '2018-01-03', '1991-02-04', 'maligroaljhon@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
+(4, 'Sample', 'Sample', 'Sample', 'male', 'Taguig', 243678699, '2019-02-15', '1991-07-17', 'sample@gmail.com', 'fdad378c71f09711285e6a64ffb0d5234e8ae68b');
 
 -- --------------------------------------------------------
 
@@ -111,12 +112,13 @@ CREATE TABLE `tbl_orders` (
 --
 
 INSERT INTO `tbl_orders` (`id`, `user_id`, `transaction_code`, `purchase_date`, `status_id`, `payment_mode_id`, `payment`, `shipping_address`) VALUES
-(35, 3, 'i3GyD8e1bhxnYgI5cR4012019', '2018-11-04', 1, 1, 'cash', '93-J Champaca St Western Bicutan Taguig City'),
-(36, 3, 'frRzH7a4C8mglVtLI16012019', '2019-01-06', 1, 1, 'cash', '93-J Champaca St Western Bicutan Taguig City'),
+(35, 3, 'i3GyD8e1bhxnYgI5cR4012019', '2018-11-04', 2, 1, 'cash', '93-J Champaca St Western Bicutan Taguig City'),
+(36, 3, 'frRzH7a4C8mglVtLI16012019', '2019-01-06', 2, 1, 'cash', '93-J Champaca St Western Bicutan Taguig City'),
 (37, 3, 'Ao9DuU1adqWePSh8py7012019', '2019-01-07', 1, 2, 'none', '93-J Champaca St Western Bicutan Taguig City'),
 (38, 3, 'tAoNWGuUbmKF2aiYnO7012019', '2019-01-07', 1, 2, 'PAY-7A682653RB456744FLQZPL2Q', '93-J Champaca St Western Bicutan Taguig City'),
-(39, 3, 'Zcmhbj6kLSX0YeyGRu7012019', '2019-01-07', 1, 2, 'PAY-3P040173LC0785035LQZPMJY', '93-J Champaca St Western Bicutan Taguig City'),
-(40, 3, 'iaeIyXMDUsnLR80HSJ7012019', '2019-01-07', 1, 1, 'cash', '93-J Champaca St Western Bicutan Taguig City');
+(39, 3, 'Zcmhbj6kLSX0YeyGRu7012019', '2019-01-07', 2, 2, 'PAY-3P040173LC0785035LQZPMJY', '93-J Champaca St Western Bicutan Taguig City'),
+(40, 3, 'iaeIyXMDUsnLR80HSJ7012019', '2019-01-07', 2, 1, 'cash', '93-J Champaca St Western Bicutan Taguig City'),
+(41, 4, '7grb2xOlx0qL56zDoE15022019', '2019-02-15', 1, 2, 'PAYID-LRTDB5Q5TN7701743248920S', 'Taguig');
 
 -- --------------------------------------------------------
 
@@ -144,7 +146,9 @@ INSERT INTO `tbl_order_items` (`id`, `orders_id`, `products_id`, `quantity`, `pr
 (34, 38, 7, 1, '32000'),
 (35, 39, 9, 1, '32000'),
 (36, 40, 8, 1, '32000'),
-(37, 40, 7, 1, '32000');
+(37, 40, 7, 1, '32000'),
+(38, 41, 7, 3, '32000'),
+(39, 41, 8, 1, '32000');
 
 -- --------------------------------------------------------
 
@@ -327,7 +331,7 @@ ALTER TABLE `tbl_types`
 -- AUTO_INCREMENT for table `tbl_account`
 --
 ALTER TABLE `tbl_account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_admin`
@@ -345,13 +349,13 @@ ALTER TABLE `tbl_categories`
 -- AUTO_INCREMENT for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_items`
 --
 ALTER TABLE `tbl_order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `tbl_payment_mode`
